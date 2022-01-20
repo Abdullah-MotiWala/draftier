@@ -11,7 +11,7 @@ const cors = require("cors");
 
 connectingMongoose();
 
-const port = process.env.PORT || 5002;
+const port = process.env.PORT;
 app.use(express.json());
 app.use(cors());
 
