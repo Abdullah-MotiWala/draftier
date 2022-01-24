@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
-const mongURI = process.env.DATABASE;
+const mongURI = 
+process.env.DATABASE;
 
 const connectingMongoose = () => {
   mongoose.connect(mongURI, () => {

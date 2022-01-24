@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "heroku-postbuild" : "NPM_CONFIG_PRODUCTION=false npm install --prefix i_note_book && npm run build --prefix i_note_book"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix i_note_book && npm run build --prefix i_note_book"
   },
   "author": "Abdullah MotiWala",
   "license": "ISC",
