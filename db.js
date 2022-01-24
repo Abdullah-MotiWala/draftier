@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const mongURI = 'mongodb+srv://AbdullahMotiWala:<password>@cluster0.4fz1u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const mongURI ='mongodb+srv://AbdullahMotiWala:Bluebirds123@cluster0.4fz1u.mongodb.net/Cluster0?retryWrites=true&w=majority'
 
 const connectingMongoose = () => {
   mongoose.connect(mongURI, () => {
