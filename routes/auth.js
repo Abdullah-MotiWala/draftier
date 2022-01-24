@@ -7,7 +7,7 @@ const tokenMiddle = require("../middleWare/fetchUser");
 
 const router = express.Router();
 
-const JWT_SECRT = process.env.SECRET_KEY;
+const JWT_SECRT = 'processenvSECRET_KEY';
 
 //ROUTE 1: creating user using /api/auth/signup
 router.post(
