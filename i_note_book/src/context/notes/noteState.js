@@ -12,7 +12,6 @@ const NoteState = (props) => {
       headers: {
         "Content-Type": "application/json",
         "auth-token": localStorage.getItem("authToken"),
-        Authorization: `Bearer ${token}`
       }
     });
     const fetchedNotes = await response.json();
