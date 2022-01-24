@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
@@ -20,7 +20,6 @@ export default function Navbar() {
     // activing if path match
     if (location.pathname === `/${eleHref}`) {
       targetEle.className = `${prevClass} active`;
-      console.log(targetEle.className);
     }
 
     // removing active class if pathchange
@@ -49,9 +48,6 @@ export default function Navbar() {
                     activeLink(e);
                   }}
                   aria-current="page"
-                  onClick={(e) => {
-                    activeLink(e);
-                  }}
                 >
                   Home
                 </Link>
@@ -60,9 +56,6 @@ export default function Navbar() {
                 <Link
                   to="about"
                   className="nav-link"
-                  onClick={(e) => {
-                    activeLink(e);
-                  }}
                   onClick={(e) => {
                     activeLink(e);
                   }}

@@ -7,7 +7,7 @@ const tokenMiddle = require("../middleWare/fetchUser");
 
 const router = express.Router();
 
-const JWT_SECRT = 'processenvSECRET_KEY';
+const JWT_SECRT = process.env.SECRET_KEY;
 
 //ROUTE 1: creating user using /api/auth/signup
 router.post(
@@ -44,13 +44,13 @@ router.post(
       //sending gwtToken using user.id
       const data = {
         user: {
-          id: user.id
+          id: user.id,
+          email: user.email
         }
       };
       const authToken = jwt.sign(data, JWT_SECRT);
       res.json({ authToken });
     } catch (err) {
-      console.log(err);
       res.send({ error: "Internal Server Error" });
     }
   }
@@ -87,7 +87,8 @@ router.post(
       //sending gwtToken using user.id
       const data = {
         user: {
-          id: user.id
+          id: user.id,
+          email: user.email
         }
       };
       const authToken = jwt.sign(data, JWT_SECRT);
@@ -97,8 +98,6 @@ router.post(
     }
   }
 );
-
-
 
 // ROUTE 3: sending data of user using /api/auth/userDetails login require
 router.post("/userDetails", tokenMiddle, async (req, res) => {

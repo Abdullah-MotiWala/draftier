@@ -11,7 +11,7 @@ const NoteState = (props) => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": localStorage.getItem("authToken"),
+        "auth-token": localStorage.getItem("authToken")
       }
     });
     const fetchedNotes = await response.json();
@@ -58,10 +58,8 @@ const NoteState = (props) => {
 
   //editing notes
   const editNotes = async (id, eTitle, eDes, eTags) => {
-    console.time();
     //logic for editing notes
     let newNotes = JSON.parse(JSON.stringify(curNotes));
-    console.log(newNotes);
     for (let i = 0; i < newNotes.length; i++) {
       let targetNote = curNotes[i];
       if (targetNote._id === id) {
@@ -74,7 +72,7 @@ const NoteState = (props) => {
     setCurNotes(newNotes);
     // API call for editing notes
     let url = `/api/notes/updatenotes/${id}`;
-    const response = await fetch(url, {
+    await fetch(url, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -82,7 +80,7 @@ const NoteState = (props) => {
       },
       body: JSON.stringify({ eTitle, eDes, eTags })
     });
-    console.timeEnd();
+
   };
   return (
     <NoteContext.Provider
