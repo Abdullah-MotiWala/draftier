@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
-const url = `http://localhost:5002/api/auth/signup`;
+const url = `/api/auth/signup`;
 
 export default function Signup() {
   const navigate = useNavigate();

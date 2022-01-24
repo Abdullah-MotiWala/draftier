@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import NoteContext from "./noteContext";
 
 const NoteState = (props) => {
-  const host = "http://localhost:5002";
+  const host = "/";
   const [curNotes, setCurNotes] = useState([]);
 
   //fetch all notes on app start
   const fetAllNotes = async () => {
-    let url = `${host}/api/notes/fetchnotes`;
+    let url = `/api/notes/fetchnotes`;
     const response = await fetch(url, {
       method: "GET",
       headers: {
@@ -24,7 +24,7 @@ const NoteState = (props) => {
     const { title, description, tags } = noteAdd;
 
     // API Call for adding notes
-    let url = `${host}/api/notes/addnotes`;
+    let url = `/api/notes/addnotes`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -33,19 +33,6 @@ const NoteState = (props) => {
       },
       body: JSON.stringify({ title, description, tags })
     });
-    // let noteRes = await response.json();
-    // console.log(noteRes);/
-
-    //logic for adding notes
-    // const note = {
-    //   _id: "61db0317274527889dcc4c27",
-    //   user: "61d5fe7bcf8885f94ce563b2",
-    //   title: title,
-    //   description: description,
-    //   tags: tags,
-    //   time: "2022-01-09T15:45:20.373Z",
-    //   __v: 0
-    // };
     const note = await response.json()
     setCurNotes(curNotes.concat(note));
   };
