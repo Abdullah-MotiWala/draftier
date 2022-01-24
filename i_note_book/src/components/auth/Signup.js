@@ -24,8 +24,8 @@ export default function Signup() {
     // storing json server repsonse auth token in local storage and navigating to home screen
     if (json.authToken) {
       localStorage.setItem("authToken", json.authToken);
-      console.log("error")
-      // navigate("/");
+      // console.log("error")
+      navigate("/");
     }
     //showing error of server if found
     else {
