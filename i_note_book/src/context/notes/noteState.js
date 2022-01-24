@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import NoteContext from "./noteContext";
 
 const NoteState = (props) => {
-  const host = "/";
   const [curNotes, setCurNotes] = useState([]);
 
   //fetch all notes on app start
@@ -12,7 +11,8 @@ const NoteState = (props) => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": localStorage.getItem("authToken")
+        "auth-token": localStorage.getItem("authToken"),
+        Authorization: `Bearer ${token}`
       }
     });
     const fetchedNotes = await response.json();
@@ -33,14 +33,14 @@ const NoteState = (props) => {
       },
       body: JSON.stringify({ title, description, tags })
     });
-    const note = await response.json()
+    const note = await response.json();
     setCurNotes(curNotes.concat(note));
   };
 
   //deleting notes
   const delNotes = async (id) => {
     // API call for deleting notes using id as params
-    let url = `${host}/api/notes/deletenotes/${id}`;
+    let url = `/api/notes/deletenotes/${id}`;
     const response = await fetch(url, {
       method: "DELETE",
       headers: {
@@ -74,7 +74,7 @@ const NoteState = (props) => {
     }
     setCurNotes(newNotes);
     // API call for editing notes
-    let url = `${host}/api/notes/updatenotes/${id}`;
+    let url = `/api/notes/updatenotes/${id}`;
     const response = await fetch(url, {
       method: "PUT",
       headers: {
