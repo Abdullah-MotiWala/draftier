@@ -8,19 +8,20 @@ import About from "./components/About";
 import Signup from "./components/auth/Signup";
 import Login from "./components/auth/Login";
 
+
 function App() {
   return (
     <>
       <NoteState>
-        <Navbar></Navbar>
-        <div className="container">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="about" element={<About />} />
-            <Route path="signup" element={<Signup />} />
-            <Route path="login" element={<Login />} />
-          </Routes>
-        </div>
+        <Navbar />
+        {/* <div className="container"> */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="signup" element={<Signup />} />
+          <Route path="login" element={<Login />} />
+        </Routes>
+        {/* </div> */}
       </NoteState>
     </>
   );

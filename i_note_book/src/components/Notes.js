@@ -42,7 +42,7 @@ export default function Notes() {
     <>
       <AddNotes />
       {/* <!-- Button trigger modal --> */}
-      <button
+      {/* <button
         type="button"
         className="btn btn-primary d-none"
         data-bs-toggle="modal"
@@ -50,7 +50,7 @@ export default function Notes() {
         ref={ref}
       >
         Launch demo modal
-      </button>
+      </button> */}
       {/* <!-- Modal --> */}
       <div
         className="modal fade"
